@@ -1,4 +1,5 @@
 pipeline {
+   agent any
    stages {
        stage('A') {
            steps {
@@ -6,16 +7,7 @@ pipeline {
                    credentialsId : 'aws',                                                 
                    accessKeyVariable: 'AWS_ACCESS_KEY',
                    secretKeyVariable: 'AWS_SECRET_KEY'
-                                     ]]) { }
-           }
-       }
-       stage('B') {
-           steps {
-              withCredentials([[ $class: 'AmazonWebServicesCredentialsBinding',
-                   credentialsId : 'aws',                                                 
-                   accessKeyVariable: 'AWS_ACCESS_KEY',
-                   secretKeyVariable: 'AWS_SECRET_KEY'
-                                     ]]) { }
+                                     ]]) { echo "asasdas" }
            }
        }
    }
