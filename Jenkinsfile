@@ -1,13 +1,15 @@
 pipeline {
+       environment {
+        AWS_ACCESS_KEY_ID = credentials("AWS_ACCESS_KEY")
+        AWS_SECRET_ACCESS_KEY = credentials("AWS_SECRET_TKEY")
+        
+    }
+   
    agent any
    stages {
        stage('A') {
            steps {
-              withCredentials([[ $class: 'AmazonWebServicesCredentialsBinding',
-                   credentialsId: 252527887968,                                  
-                   accessKeyVariable: 'AWS_ACCESS_KEY',
-                   secretKeyVariable: 'AWS_SECRET_KEY'
-                                     ]]) { echo "asasdas" }
+            echo "s"
            }
        }
    }
